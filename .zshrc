@@ -28,3 +28,11 @@ export PATH=~/.local/bin:~/bin:$PATH
 hash nano  >/dev/null 2>&1 && export EDITOR="nano"
 hash vim   >/dev/null 2>&1 && export EDITOR="vim"
 hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
+
+
+#############
+###Options###
+#############
+
+#flow control semms kinda strange, we don't need that
+unsetopt flow_control
