@@ -36,3 +36,22 @@ hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
 
 #flow control semms kinda strange, we don't need that
 unsetopt flow_control
+
+
+#################
+###Keybindings###
+#################
+
+#create table of all keys.
+typeset -A key
+
+key[Home]=${terminfo[khome]}
+key[End]=${terminfo[kend]}
+key[Insert]=${terminfo[kich1]}
+key[Delete]=${terminfo[kdch1]}
+key[Up]=${terminfo[kcuu1]}
+key[Down]=${terminfo[kcud1]}
+key[Left]=${terminfo[kcub1]}
+key[Right]=${terminfo[kcuf1]}
+key[PageUp]=${terminfo[kpp]}
+key[PageDown]=${terminfo[knp]}
