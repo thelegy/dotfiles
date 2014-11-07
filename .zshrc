@@ -13,3 +13,18 @@
 
 
 #Now, let's come to the good stuff:
+
+
+#############
+###Globals###
+#############
+
+#the path should be set correctly
+export PATH=~/.local/bin:~/bin:$PATH
+
+## Editor
+#provide a range of fallbacks
+                              export EDITOR="vi"
+hash nano  >/dev/null 2>&1 && export EDITOR="nano"
+hash vim   >/dev/null 2>&1 && export EDITOR="vim"
+hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
