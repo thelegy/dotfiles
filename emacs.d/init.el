@@ -73,3 +73,39 @@
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;;;; Packages and Mode-configs
+
+;;;;; nyan-mode
+(with-eval-after-load "nyan-mode-autoloads"
+	(nyan-mode)
+)
+
+;;;;; undo-tree
+(with-eval-after-load "undo-tree-autoloads"
+	(global-undo-tree-mode t)
+	(setq undo-tree-visualizer-relative-timestamps t)
+	(setq undo-tree-visualizer-timestamps t)
+)
+
+;;;;; smart-tabs-mode
+(with-eval-after-load "smart-tabs-mode-autoloads"
+	(setq-default indent-tabs-mode nil)
+	(smart-tabs-insinuate
+		'c
+		'c++
+		'javascript
+	)
+)
+
+;;;;; AUCTeX
+(with-eval-after-load "auctex-autoloads"
+	(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+	(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+	(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+	(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+	(setq
+		TeX-PDF-mode t
+		preview-auto-cache-preamble t
+	)
+)
