@@ -13,3 +13,12 @@
 
 
 ; Now, let's come to the good stuff:
+
+
+;; Turn off mouse interface as early as possible
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; No splash screen please...
+(setq inhibit-startup-screen t)
