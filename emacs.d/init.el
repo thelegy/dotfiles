@@ -33,3 +33,20 @@
 (package-initialize)
 
 ;;;; macros
+
+;;;; global settings
+(setq-default
+	tab-width 2
+	TeX-master nil
+	preview-scale-function 1.3
+)
+
+(setq
+	TeX-auto-save t
+	TeX-parse-self t
+	time-stamp-pattern nil
+)
+
+(add-hook
+	'before-save-hook 'time-stamp
+)
