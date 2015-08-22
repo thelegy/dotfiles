@@ -62,17 +62,4 @@ key[PageDown]=${terminfo[knp]}
 ###################
 
 ## PS1
-export PS1="$USER@$HOST:$(pwd) $ "
-
-## Powerline
-# get the powerline path
-powerline_path=$(/bin/env python3 -c 'import pkgutil;import os;print(os.path.dirname(pkgutil.get_loader("powerline").path))' 2>/dev/null)
-
-# check if powerline ist present
-if [[ "$powerline_path" != "" && $(hash powerline >/dev/null 2>&1; echo $?) == 0 ]]; then
-  # source the binding, this overwrites PS1
-  source $powerline_path/bindings/zsh/powerline.zsh
-fi
-
-# remove all the dirtiness
-unset powerline_path
+export PS1="$USER@$HOST:%~ $ "
