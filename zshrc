@@ -15,12 +15,20 @@
 # Now, let's come to the good stuff:
 
 
+###############
+###Autoloads###
+###############
+
+# want to use regex later on
+autoload -U regexp-replace
+
+
 #############
 ###Globals###
 #############
 
 # the path should be set correctly
-export PATH=~/.local/bin:~/bin:$PATH
+export PATH=~/.local/bin:~/bin:${PATH}
 
 ## Editor
 # provide a range of fallbacks
@@ -61,5 +69,36 @@ key[PageDown]=${terminfo[knp]}
 ###Command Propt###
 ###################
 
-## PS1
-export PS1="$USER@$HOST:%~ $ "
+function command_prompt_init() {
+
+	local color=true
+	local unicode=true
+
+  #
+	local static_left="%(!.%F{red}.%F{green})%n%f@%F{yellow}%m%f:%~/"
+	local static_left_noc=${static_left}
+	regexp-replace static_left_noc '%([fb]|[FB]\{\w+\})' ''
+
+	if ! ${color}; then
+		static_left=${static_left_noc}
+  fi
+
+	# PS1 to fall back
+	export PS1="[${static_left}] $ %E"
+	
+	export PSL1="┌─[${static_left}]"
+	export PSL2="│ $ %E"
+
+	export PROMPT=${PSL1}$'\n'${PSL2}
+
+	function precmd() {
+    local expandedPrompt="$(print -P "$NPS1")"
+    local promptLength="${#expandedPrompt}"
+    PS2="> "
+    PS2="$(printf "%${promptLength}s" "$PS2")"
+		#echo $promptLength
+	}
+
+}
+
+command_prompt_init
