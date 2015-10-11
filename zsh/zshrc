@@ -67,9 +67,9 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-###################
-###Command Propt###
-###################
+####################
+###Command Prompt###
+####################
 
 function command_prompt_init() {
 
