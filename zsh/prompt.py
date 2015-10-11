@@ -1,69 +1,9 @@
 #!/usr/bin/env python3
 
-import sys
-import os
 import re
-import subprocess
+from subprocess import check_output
 
-class Decorator(object):
-
-    def decorate(self, s):
-        return s
-
-
-class Bold(Decorator):
-
-    def decorate(self, s):
-        return '%B' + s + '%b'
-
-
-class Underline(Decorator):
-
-    def decorate(self, s):
-        return '%U' + s + '%u'
-
-
-class ForegroundColor(Decorator):
-
-    def __init__(self, color):
-        colors = 'black red green yellow blue magenta cyan white'.split()
-        color = color.lower().strip()
-        if color not in colors:
-            raise Exception('Color is udefined')
-        self.__color = color
-
-    def decorate(self, s):
-        return '%F{' + self.__color + '}' + s + '%f'
-
-
-class BackgroundColor(Decorator):
-
-    def __init__(self, color):
-        colors = 'black red green yellow blue magenta cyan white'.split()
-        color = color.lower().strip()
-        if color not in colors:
-            raise Exception('Color is udefined')
-        self.__color = color
-
-    def decorate(self, s):
-        return '%K{' + self.__color + '}' + s + '%k'
-
-
-class Promptly(object):
-
-    def __init__(self, *childs, decoration=None):
-        self.__childs = childs
-        self.__decoration = decoration
-
-    def __len__(self):
-        return sum([len(x) for x in self.__childs])
-
-    def __str__(self):
-        s = ''.join([str(x) for x in self.__childs])
-        if self.__decoration is None:
-            return s
-        else:
-            return self.__decoration.decorate(s)
+from Promptly import Promptly, FC, BC, B, U
 
 
 class Prompt(object):
@@ -84,7 +24,7 @@ class Prompt(object):
         return part
 
     def _get_host_part(self):
-        part = Promptly(self.__host, decoration=BC('yellow'))
+        part = Promptly(self.__host, decoration=FC('yellow'))
         return part
 
     def _get_path_part(self):
@@ -110,11 +50,12 @@ class Prompt(object):
             if self.__isRoot:
                 prompt = Promptly(
                     prompt,
-                    decoration=ForegroundColor('red'))
-            return str(prompt) + ' %E%2G'
+                    decoration=FC('red'))
+            prompt = Promptly(prompt, ' %E%2G')
         else:
             prompt = Promptly(line1, '\n', line2, '%E')
-            return str(prompt)
+
+        return str(prompt)
 
 
 def prompt(args):
@@ -132,15 +73,17 @@ def prompt(args):
 
 
 def get_short_PS1():
-    ps1 = os.environ['PS1']
+    from os import environ
+
+    ps1 = environ['PS1']
 
     ps1 = re.sub(r'%[FK]{\w+}', '', ps1)
     ps1 = re.sub(r'%[fkBbUuE]', '', ps1)
 
-    env = os.environ.copy()
+    env = environ.copy()
     env['ps1_cp'] = ps1
 
-    ps1 = subprocess.check_output(
+    ps1 = check_output(
         ['zsh', '-c', 'echo -n ${(%%)ps1_cp}'],
         env=env)
 
@@ -150,7 +93,7 @@ def get_short_PS1():
 def main():
     from argparse import ArgumentParser
     from getpass import getuser
-    from os import getuid
+    from os import getcwd, getuid
     from socket import gethostname
 
     parser = ArgumentParser(
@@ -186,18 +129,12 @@ def main():
         '--cwd',
         dest='cwd',
         action='store',
-        default=os.getcwd(),
+        default=getcwd(),
         help='overwrite the current working directory to display')
 
     args = parser.parse_args()
 
     print(prompt(args), end='')
-
-
-B = Bold
-U = Underline
-FC = ForegroundColor
-BC = BackgroundColor
 
 
 if __name__ == '__main__':
