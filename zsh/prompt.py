@@ -14,6 +14,7 @@ class Prompt(object):
         self.__host = args.host
         self.__isRoot = args.isRoot
         self.__cwd = args.cwd
+        self.__home = args.home
 
     def _get_user_part(self):
         part = Promptly(self.__user)
@@ -28,7 +29,12 @@ class Prompt(object):
         return part
 
     def _get_path_part(self):
-        part = Promptly(self.__cwd)
+        path = self.__cwd + '/'
+        if path.startswith(self.__home + '/'):
+            path = path.lstrip(self.__home)
+            path = '~/' + path
+        path = path.rstrip('/')
+        part = Promptly(path)
         return part
 
     def __str__(self):
@@ -93,7 +99,8 @@ def get_short_PS1():
 def main():
     from argparse import ArgumentParser
     from getpass import getuser
-    from os import getcwd, getuid
+    from os import getcwd, getuid, environ
+    from os.path import expanduser
     from socket import gethostname
 
     parser = ArgumentParser(
@@ -111,13 +118,13 @@ def main():
         dest='user',
         action='store',
         default=getuser(),
-        help='overwrite the user to display in the prompt')
+        help='overwrite the user')
     parser.add_argument(
         '--host',
         dest='host',
         action='store',
         default=gethostname(),
-        help='overwrite the host to display in the prompt')
+        help='overwrite the host')
     parser.add_argument(
         '--root',
         dest='isRoot',
@@ -129,8 +136,14 @@ def main():
         '--cwd',
         dest='cwd',
         action='store',
-        default=getcwd(),
-        help='overwrite the current working directory to display')
+        default=environ['PWD'],
+        help='overwrite the current working directory')
+    parser.add_argument(
+        '--home',
+        dest='home',
+        action='store',
+        default=expanduser('~'),
+        help='overwrite the home directory')
 
     args = parser.parse_args()
 
