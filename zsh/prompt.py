@@ -6,6 +6,47 @@ from subprocess import check_output
 from Promptly import Promptly, FC, BC, B, U
 
 
+class Path(object):
+
+    def __init__(self, cwd, home):
+        self.__cwd = cwd
+        self.__home = home
+
+    def _strip_home(self, path):
+        if path.startswith(self.__home + '/'):
+            path = path.lstrip(self.__home)
+            path = '~/' + path
+        return path
+
+    def _shorten_path(self, path, maxLength=20):
+        if len(path) > maxLength:
+            path_split = path.split('/')
+            if len(path_split) > 1:
+                left = path_split[0]
+                if len(left) > 0:
+                    left = left[0]
+                right = '/'.join(path_split[1:])
+                right = self._shorten_path(
+                    right,
+                    maxLength=maxLength-1-len(left))
+                path = left + '/' + right
+        return path
+
+    def to_Promptly(self):
+        return Promptly(str(self))
+
+    def __str__(self):
+        path = self.__cwd + '/'
+
+        path = self._strip_home(path)
+
+        path = path.rstrip('/')
+
+        path = self._shorten_path(path)
+
+        return path
+
+
 class Prompt(object):
 
     def __init__(self, args):
@@ -28,19 +69,10 @@ class Prompt(object):
         part = Promptly(self.__host, decoration=FC('yellow'))
         return part
 
-    def _get_path_part(self):
-        path = self.__cwd + '/'
-        if path.startswith(self.__home + '/'):
-            path = path.lstrip(self.__home)
-            path = '~/' + path
-        path = path.rstrip('/')
-        part = Promptly(path)
-        return part
-
     def __str__(self):
         userP = self._get_user_part()
         hostP = self._get_host_part()
-        pathP = self._get_path_part()
+        pathP = Path(self.__cwd, self.__home).to_Promptly()
 
         line1 = Promptly('┌─[',
                          userP,
