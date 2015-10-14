@@ -115,11 +115,16 @@ class Prompt(object):
 
         space_num = self.__width - len(left_half) - len (right_half)
 
+        if space_num <= 0:
+            right_half = Promptly()
+            space_num = self.__width - len(left_half) - len (right_half)
+
         space = '─' + ''.join(['─' for __ in range(space_num-1)])
 
         line1 = Promptly(left_half,
                          space,
                          right_half)
+
         line2 = Promptly('│ $ ')
 
         if len(line1) > self.__width:
