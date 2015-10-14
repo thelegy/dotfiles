@@ -69,18 +69,57 @@ class Prompt(object):
         part = Promptly(self.__host, decoration=FC('yellow'))
         return part
 
-    def __str__(self):
+    def _get_left_box(self):
         userP = self._get_user_part()
         hostP = self._get_host_part()
         pathP = Path(self.__cwd, self.__home).to_Promptly()
 
-        line1 = Promptly('┌─[',
-                         userP,
-                         '@',
-                         hostP,
-                         ':',
-                         pathP,
-                         ']──>')
+        box = Promptly('[',
+                       userP,
+                       '@',
+                       hostP,
+                       ':',
+                       pathP,
+                       ']')
+
+        return box
+
+    def _get_date_box(self):
+        from time import strftime
+
+        box = Promptly('[',
+                       strftime('%x %R'),
+                       ']')
+
+        return box
+
+    def _get_left_half(self):
+        left_box = self._get_left_box()
+
+        half = Promptly('┌─',
+                        left_box)
+
+        return half
+
+    def _get_right_half(self):
+        date_box = self._get_date_box()
+
+        half = Promptly(date_box,
+                        '─')
+
+        return half
+
+    def __str__(self):
+        left_half = self._get_left_half()
+        right_half = self._get_right_half()
+
+        space_num = self.__width - len(left_half) - len (right_half)
+
+        space = '─' + ''.join(['─' for __ in range(space_num-1)])
+
+        line1 = Promptly(left_half,
+                         space,
+                         right_half)
         line2 = Promptly('│ $ ')
 
         if len(line1) > self.__width:
