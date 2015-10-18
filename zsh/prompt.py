@@ -56,6 +56,7 @@ class Prompt(object):
         self.__isRoot = args.isRoot
         self.__cwd = args.cwd
         self.__home = args.home
+        self.__pyvenv = args.pyvenv
 
     def _get_user_part(self):
         part = Promptly(self.__user)
@@ -84,6 +85,16 @@ class Prompt(object):
 
         return box
 
+    def _get_pyvenv_box(self):
+        if len(self.__pyvenv) <= 1:
+            return Promptly('')
+
+        box = Promptly('(',
+                       self.__pyvenv.split('/')[-1],
+                       ')')
+
+        return box
+
     def _get_date_box(self):
         from time import strftime
 
@@ -95,9 +106,16 @@ class Prompt(object):
 
     def _get_left_half(self):
         left_box = self._get_left_box()
+        pyvenv_box = self._get_pyvenv_box()
 
         half = Promptly('┌─',
                         left_box)
+
+        if len(pyvenv_box) > 0:
+            if len(pyvenv_box) + len(left_box) + 1 < self.__width:
+                half = Promptly(half,
+                                '─',
+                                pyvenv_box)
 
         return half
 
@@ -113,11 +131,11 @@ class Prompt(object):
         left_half = self._get_left_half()
         right_half = self._get_right_half()
 
-        space_num = self.__width - len(left_half) - len (right_half)
+        space_num = self.__width - len(left_half) - len(right_half)
 
         if space_num <= 0:
             right_half = Promptly()
-            space_num = self.__width - len(left_half) - len (right_half)
+            space_num = self.__width - len(left_half) - len(right_half)
 
         space = '─' + ''.join(['─' for __ in range(space_num-1)])
 
@@ -220,6 +238,12 @@ def main():
         action='store',
         default=expanduser('~'),
         help='overwrite the home directory')
+    parser.add_argument(
+        '--pyvenv',
+        dest='pyvenv',
+        action='store',
+        default=environ.get('VIRTUAL_ENV', ''),
+        help='overwrite the active python virtual environment')
 
     args = parser.parse_args()
 
