@@ -89,7 +89,7 @@ function command_prompt_init() {
 	# PS1 to fall back
 	export PS1="[${static_left}] $ %E"
 	
-	export PROMPT='%{'$PS1'%}$('${promptPath}' --width ${COLUMNS} 2>&-)'
+	export PROMPT='$('${promptPath}' --width ${COLUMNS} 2>/dev/null || echo "'$PS1'")'
 
 }
 

@@ -163,31 +163,10 @@ def prompt(args):
 
     prom = str(p)
 
-    # This creates the actual prompt.
     s = '\r%E'
-    for __ in range(int((len(get_short_PS1())-1) / args.width)):
-        s += '\b\b\r%E'
     s += prom
 
     return s
-
-
-def get_short_PS1():
-    from os import environ
-
-    ps1 = environ['PS1']
-
-    ps1 = re.sub(r'%[FK]{\w+}', '', ps1)
-    ps1 = re.sub(r'%[fkBbUuE]', '', ps1)
-
-    env = environ.copy()
-    env['ps1_cp'] = ps1
-
-    ps1 = check_output(
-        ['zsh', '-c', 'echo -n ${(%%)ps1_cp}'],
-        env=env)
-
-    return ps1.decode()
 
 
 def main():
