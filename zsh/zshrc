@@ -37,6 +37,9 @@ hash nano  >/dev/null 2>&1 && export EDITOR="nano"
 hash vim   >/dev/null 2>&1 && export EDITOR="vim"
 hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
 
+## Terminal
+# provide a terminal, that works almost everywhere
+export TERM="rxvt"
 
 #############
 ###Options###
