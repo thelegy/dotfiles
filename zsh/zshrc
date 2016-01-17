@@ -74,6 +74,7 @@ bindkey "^[Od" emacs-backward-word
 bindkey "^[Oc" emacs-forward-word
 bindkey ${key[Home]} vi-beginning-of-line
 bindkey ${key[End]} vi-end-of-line
+bindkey ${key[Delete]} delete-char
 
 ####################
 ###Command Prompt###
