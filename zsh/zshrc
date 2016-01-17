@@ -67,11 +67,13 @@ key[Up]=${terminfo[kcuu1]}
 key[Down]=${terminfo[kcud1]}
 key[Left]=${terminfo[kcub1]}
 key[Right]=${terminfo[kcuf1]}
+key[C-Left]="^[Od"
+key[C-Right]="^[Oc"
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-bindkey "^[Od" emacs-backward-word
-bindkey "^[Oc" emacs-forward-word
+bindkey ${key[C-Left]} emacs-backward-word
+bindkey ${key[C-Right]} emacs-forward-word
 bindkey ${key[Home]} vi-beginning-of-line
 bindkey ${key[End]} vi-end-of-line
 bindkey ${key[Delete]} delete-char
