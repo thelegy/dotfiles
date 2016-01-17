@@ -70,6 +70,11 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
+bindkey "^[Od" emacs-backward-word
+bindkey "^[Oc" emacs-forward-word
+bindkey ${key[Home]} vi-beginning-of-line
+bindkey ${key[End]} vi-end-of-line
+
 ####################
 ###Command Prompt###
 ####################
