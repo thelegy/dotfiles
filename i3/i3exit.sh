@@ -10,9 +10,13 @@ function lock()
                 -gaussian-blur 4 \
                 -resize 400% \
                 "${tmpscreenshot}"
-        i3lock -defi "${tmpscreenshot}"
+        if ! i3lock -defi "${tmpscreenshot}"; then
+            i3lock -i "${tmpscreenshot}"
+        fi
     else
-        i3lock -defc 003B65
+        if ! i3lock -defc 003B65; then
+            i3lock -c 003B65
+        fi
     fi
     return
 }
