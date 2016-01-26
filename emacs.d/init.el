@@ -1,3 +1,4 @@
+(load "~/.emacs.d/config/defuns")
 
 ;; Turn off mouse interface as early as possible
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
