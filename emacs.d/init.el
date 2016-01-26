@@ -36,6 +36,8 @@
 
 (add-hook
  'before-save-hook 'time-stamp)
+(add-hook
+ 'before-save-hook 'whitespace-cleanup)
 
 
 ;;;; global key bindings
