@@ -1,19 +1,3 @@
-;;;;;;;;;;;;;;;;;;;;;
-;;;    init.el    ;;;
-;;; by Jan Beinke ;;;
-;;;;;;;;;;;;;;;;;;;;;
-
-
-; Feel free to use, change and create more,
-; I would also encourage you to report me
-; any bugs or problems, you have with this.
-
-; This file comes with abolutely no warrenty,
-; and it is provided as-is.
-
-
-; Now, let's come to the good stuff:
-
 
 ;; Turn off mouse interface as early as possible
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -36,16 +20,16 @@
 
 ;;;; global settings
 (setq-default
-	tab-width 2
-	TeX-master nil
-	preview-scale-function 1.3
-)
+ tab-width 2
+ TeX-master nil
+ preview-scale-function 1.3
+ )
 
 (setq
-	TeX-auto-save t
-	TeX-parse-self t
-	time-stamp-pattern nil
-)
+ TeX-auto-save t
+ TeX-parse-self t
+ time-stamp-pattern nil
+ )
 
 (add-hook
 	'before-save-hook 'time-stamp
@@ -79,24 +63,24 @@
 ;;;;; nyan-mode
 (with-eval-after-load "nyan-mode-autoloads"
 	(nyan-mode)
-)
+  )
 
 ;;;;; undo-tree
 (with-eval-after-load "undo-tree-autoloads"
 	(global-undo-tree-mode t)
 	(setq undo-tree-visualizer-relative-timestamps t)
 	(setq undo-tree-visualizer-timestamps t)
-)
+  )
 
 ;;;;; smart-tabs-mode
 (with-eval-after-load "smart-tabs-mode-autoloads"
 	(setq-default indent-tabs-mode nil)
 	(smart-tabs-insinuate
-		'c
-		'c++
-		'javascript
-	)
-)
+   'c
+   'c++
+   'javascript
+   )
+  )
 
 ;;;;; AUCTeX
 (with-eval-after-load "auctex-autoloads"
@@ -105,7 +89,7 @@
 	(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 	(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
 	(setq
-		TeX-PDF-mode t
-		preview-auto-cache-preamble t
-	)
-)
+   TeX-PDF-mode t
+   preview-auto-cache-preamble t
+   )
+  )
