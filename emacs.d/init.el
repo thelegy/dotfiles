@@ -8,9 +8,13 @@
 
 (package-initialize)
 
+;;;; load configuration files
+
 (config 'mouse-interface)
 (config 'splash-screen)
 (config 'theme)
+
+;;;; make sure packages are installed and configure them
 
 ;;;; macros
 
