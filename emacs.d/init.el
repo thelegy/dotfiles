@@ -1,9 +1,5 @@
 (load "~/.emacs.d/config/defuns")
 
-;; No splash screen please...
-(setq inhibit-startup-screen t)
-
-
 ;;;; package.el
 (require 'package)
 
@@ -13,6 +9,7 @@
 (package-initialize)
 
 (config 'mouse-interface)
+(config 'splash-screen)
 (config 'theme)
 
 ;;;; macros
