@@ -16,6 +16,8 @@
 
 ;;;; make sure packages are installed and configure them
 
+(package 'magit)
+
 ;;;; macros
 
 ;;;; global settings
