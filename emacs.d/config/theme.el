@@ -1,3 +1,5 @@
 ;;; Themes for Emacs
 
-(load-theme 'ample-zen t)
+(if (package-installed-p 'ample-zen-theme)
+    (load-theme 'ample-zen t)
+  )
