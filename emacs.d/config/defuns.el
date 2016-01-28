@@ -9,11 +9,14 @@
   )
 
 ;; Function for installing and configuring packages
-(defun package (pkg)
-  (if (not (package-installed-p pkg))
-      (package-install pkg)
+(defun package (package)
+  (if (not (package-installed-p package))
+      (progn
+        (package-refresh-contents)
+        (package-install package)
+        )
     )
-  (if (package-installed-p pkg)
-      (config pkg)
+  (if (package-installed-p package)
+      (config package)
     )
   )
