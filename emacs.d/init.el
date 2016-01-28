@@ -17,6 +17,7 @@
 ;;;; make sure packages are installed and configure them
 
 (package 'magit)
+(package 'smart-tabs-mode)
 
 ;;;; macros
 
@@ -57,16 +58,6 @@
 	(global-undo-tree-mode t)
 	(setq undo-tree-visualizer-relative-timestamps t)
 	(setq undo-tree-visualizer-timestamps t)
-  )
-
-;;;;; smart-tabs-mode
-(with-eval-after-load "smart-tabs-mode-autoloads"
-	(setq-default indent-tabs-mode nil)
-	(smart-tabs-insinuate
-   'c
-   'c++
-   'javascript
-   )
   )
 
 ;;;;; AUCTeX
