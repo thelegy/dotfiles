@@ -154,6 +154,14 @@ bar {
 	position top
 }
 bar {
+	output DP-1
+	tray_output DP-1
+	status_command i3status
+	workspace_buttons no
+	binding_mode_indicator yes
+	position top
+}
+bar {
 	output VGA-0
 	tray_output VGA-0
 	status_command i3status
