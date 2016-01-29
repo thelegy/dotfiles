@@ -16,8 +16,13 @@
 
 ;;;; make sure packages are installed and configure them
 
-(package 'magit)
-(package 'smart-tabs-mode)
+(if (version< emacs-version "24.4")
+    (message "is before 24.4")
+  (progn
+    (package 'magit)
+    (package 'smart-tabs-mode)
+    )
+  )
 
 ;;;; macros
 
