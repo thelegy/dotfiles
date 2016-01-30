@@ -39,6 +39,9 @@
  time-stamp-pattern nil
  )
 
+(set-default
+ 'indicate-empty-lines t)
+
 (add-hook
  'before-save-hook 'time-stamp)
 (add-hook
