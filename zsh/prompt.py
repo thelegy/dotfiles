@@ -57,6 +57,7 @@ class Prompt(object):
         self.__cwd = args.cwd
         self.__home = args.home
         self.__pyvenv = args.pyvenv
+        self.__lastReturnCode = args.lastReturnCode
 
     def _get_user_part(self):
         part = Promptly(self.__user)
@@ -85,6 +86,18 @@ class Prompt(object):
 
         return box
 
+    def _get_return_code_box(self):
+        if self.__lastReturnCode == 0:
+            return Promptly('')
+
+        box = Promptly('{',
+                       Promptly(str(self.__lastReturnCode),
+                                decoration=FC('red')),
+                       '}')
+
+        return box
+
+
     def _get_pyvenv_box(self):
         if len(self.__pyvenv) <= 1:
             return Promptly('')
@@ -106,10 +119,17 @@ class Prompt(object):
 
     def _get_left_half(self):
         left_box = self._get_left_box()
+        return_code_box = self._get_return_code_box()
         pyvenv_box = self._get_pyvenv_box()
 
         half = Promptly('┌─',
                         left_box)
+
+        if len(return_code_box) > 0:
+            if len(return_code_box) + len(return_code_box) + 1 < self.__width:
+                half = Promptly(half,
+                                '─',
+                                return_code_box)
 
         if len(pyvenv_box) > 0:
             if len(pyvenv_box) + len(left_box) + 1 < self.__width:
@@ -223,6 +243,13 @@ def main():
         action='store',
         default=environ.get('VIRTUAL_ENV', ''),
         help='overwrite the active python virtual environment')
+    parser.add_argument(
+        '--lastReturnCode',
+        dest='lastReturnCode',
+        action='store',
+        type=int,
+        default='0',
+        help='set the return code of the last executed cmd')
 
     args = parser.parse_args()
 
