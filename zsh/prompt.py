@@ -3,7 +3,7 @@
 import re
 from subprocess import check_output
 
-from Promptly import Promptly, FC, BC, B, U
+from Promptly import Promptly
 
 
 class Path(object):
@@ -62,13 +62,13 @@ class Prompt(object):
     def _get_user_part(self):
         part = Promptly(self.__user)
         if self.__isRoot:
-            part = Promptly(part, decoration=FC('red'))
+            part = Promptly(part, foreground='red')
         else:
-            part = Promptly(part, decoration=FC('green'))
+            part = Promptly(part, foreground='green')
         return part
 
     def _get_host_part(self):
-        part = Promptly(self.__host, decoration=FC('yellow'))
+        part = Promptly(self.__host, foreground='yellow')
         return part
 
     def _get_left_box(self):
@@ -92,7 +92,7 @@ class Prompt(object):
 
         box = Promptly('{',
                        Promptly(str(self.__lastReturnCode),
-                                decoration=FC('red')),
+                                foreground='red'),
                        '}')
 
         return box
@@ -170,7 +170,7 @@ class Prompt(object):
             if self.__isRoot:
                 prompt = Promptly(
                     prompt,
-                    decoration=FC('red'))
+                    foreground='red')
             prompt = Promptly(prompt, ' %E%2G')
         else:
             prompt = Promptly(line1, '\n', line2, '%E')
