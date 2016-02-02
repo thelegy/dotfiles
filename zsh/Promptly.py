@@ -25,7 +25,7 @@ class ForegroundColor(Decorator):
         colors = 'black red green yellow blue magenta cyan white'.split()
         color = color.lower().strip()
         if color not in colors:
-            raise Exception('Color is udefined')
+            raise Exception('Color is undefined')
         self.__color = color
 
     def decorate(self, s):
@@ -38,7 +38,7 @@ class BackgroundColor(Decorator):
         colors = 'black red green yellow blue magenta cyan white'.split()
         color = color.lower().strip()
         if color not in colors:
-            raise Exception('Color is udefined')
+            raise Exception('Color is undefined')
         self.__color = color
 
     def decorate(self, s):
