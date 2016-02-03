@@ -1,47 +1,3 @@
-class Decorator(object):
-
-    def decorate(self, s):
-        return s
-
-
-class Bold(Decorator):
-
-    def decorate(self, s):
-        return '%B' + s + '%b'
-
-
-class Underline(Decorator):
-
-    def decorate(self, s):
-        return '%U' + s + '%u'
-
-
-class ForegroundColor(Decorator):
-
-    def __init__(self, color):
-        colors = 'black red green yellow blue magenta cyan white'.split()
-        color = color.lower().strip()
-        if color not in colors:
-            raise Exception('Color is undefined')
-        self.__color = color
-
-    def decorate(self, s):
-        return '%F{' + self.__color + '}' + s + '%f'
-
-
-class BackgroundColor(Decorator):
-
-    def __init__(self, color):
-        colors = 'black red green yellow blue magenta cyan white'.split()
-        color = color.lower().strip()
-        if color not in colors:
-            raise Exception('Color is undefined')
-        self.__color = color
-
-    def decorate(self, s):
-        return '%K{' + self.__color + '}' + s + '%k'
-
-
 class Promptly(object):
 
     def __init__(self,
@@ -53,6 +9,7 @@ class Promptly(object):
         self.__childs = childs
         if bold not in [None, True, False]:
             raise Exception('Bold value is not understood')
+        self.__bold = bold;
         if underline not in [None, True, False]:
             raise Exception('Underline value is not understood')
         self.__underline = underline
