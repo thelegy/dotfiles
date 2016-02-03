@@ -61,10 +61,8 @@ class Prompt(object):
 
     def _get_user_part(self):
         part = Promptly(self.__user)
-        if self.__isRoot:
-            part = Promptly(part, foreground='red')
-        else:
-            part = Promptly(part, foreground='green')
+        foreground = 'red' if self.__isRoot else 'green'
+        part = Promptly(part, foreground=foreground)
         return part
 
     def _get_host_part(self):
@@ -166,11 +164,8 @@ class Prompt(object):
         line2 = Promptly('│ $ ')
 
         if len(line1) > self.__width:
-            prompt = Promptly('$')
-            if self.__isRoot:
-                prompt = Promptly(
-                    prompt,
-                    foreground='red')
+            foreground = 'red' if self.__isRoot else None
+            prompt = Promptly('$', foreground=foreground)
             prompt = Promptly(prompt, ' %E%2G')
         else:
             prompt = Promptly(line1, '\n', line2, '%E')
