@@ -24,6 +24,7 @@
     )
   )
 
+(package 'helm)
 ;;;; macros
 
 ;;;; global settings
