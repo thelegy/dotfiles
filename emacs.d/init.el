@@ -25,6 +25,8 @@
   )
 
 (package 'helm)
+(package 'tramp)
+
 ;;;; macros
 
 ;;;; global settings
