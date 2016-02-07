@@ -84,23 +84,23 @@ bindkey ${key[Delete]} delete-char
 
 function command_prompt_init() {
 
-	local zshrc="${HOME}/.zshrc"
-	local promptPath="${zshrc:A:h}/prompt.py"
+  local zshrc="${HOME}/.zshrc"
+  local promptPath="${zshrc:A:h}/prompt.py"
 
-	local color=true
+  local color=true
 
-	local static_left="%(!.%F{red}.%F{green})%n%f@%F{yellow}%m%f:%~/"
-	local static_left_noc=${static_left}
-	regexp-replace static_left_noc '%([fb]|[FB]\{\w+\})' ''
+  local static_left="%(!.%F{red}.%F{green})%n%f@%F{yellow}%m%f:%~/"
+  local static_left_noc=${static_left}
+  regexp-replace static_left_noc '%([fb]|[FB]\{\w+\})' ''
 
-	if ! ${color}; then
-		static_left=${static_left_noc}
-	fi
+  if ! ${color}; then
+    static_left=${static_left_noc}
+  fi
 
-	# PS1 to fall back
-	export PS1="[${static_left}] $ %E"
+  # PS1 to fall back
+  export PS1="[${static_left}] $ %E"
 
-	export PROMPT='$('${promptPath}' --width ${COLUMNS} --lastReturnCode $? 2>/dev/null || echo "'$PS1'")'
+  export PROMPT='$('${promptPath}' --width ${COLUMNS} --lastReturnCode $? 2>/dev/null || echo "'$PS1'")'
 
 }
 
