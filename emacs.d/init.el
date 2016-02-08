@@ -28,11 +28,6 @@
   )
 
 (package 'auctex)
-(package 'sr-speedbar)
 (package 'helm)
+(package 'sr-speedbar)
 (package 'tramp)
-
-;;;; macros
-
-;;;; Packages and Mode-configs
-
