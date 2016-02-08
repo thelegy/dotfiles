@@ -25,6 +25,7 @@
   )
 
 (package 'auctex)
+(package 'sr-speedbar)
 (package 'helm)
 (package 'tramp)
 
