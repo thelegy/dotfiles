@@ -11,6 +11,7 @@
 ;;;; load configuration files
 
 (config 'global-keybindings)
+(config 'global-settings)
 (config 'mouse-interface)
 (config 'splash-screen)
 (config 'theme)
@@ -31,23 +32,6 @@
 (package 'tramp)
 
 ;;;; macros
-
-;;;; global settings
-(setq-default
- tab-width 2
- )
-
-(setq
- time-stamp-pattern nil
- )
-
-(set-default
- 'indicate-empty-lines t)
-
-(add-hook
- 'before-save-hook 'time-stamp)
-(add-hook
- 'before-save-hook 'whitespace-cleanup)
 
 ;;;; Packages and Mode-configs
 
