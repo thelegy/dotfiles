@@ -13,6 +13,7 @@
 (config 'global-keybindings)
 (config 'global-settings)
 (config 'mouse-interface)
+(config 'sh-mode)
 (config 'splash-screen)
 (config 'theme)
 
