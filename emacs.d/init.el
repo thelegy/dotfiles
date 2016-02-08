@@ -55,11 +55,3 @@
 
 ;;;; Packages and Mode-configs
 
-;;;;; undo-tree
-(with-eval-after-load "undo-tree-autoloads"
-	(global-undo-tree-mode t)
-	(setq undo-tree-visualizer-relative-timestamps t)
-	(setq undo-tree-visualizer-timestamps t)
-  )
-
-  )
