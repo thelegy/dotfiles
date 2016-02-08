@@ -55,11 +55,6 @@
 
 ;;;; Packages and Mode-configs
 
-;;;;; nyan-mode
-(with-eval-after-load "nyan-mode-autoloads"
-	(nyan-mode)
-  )
-
 ;;;;; undo-tree
 (with-eval-after-load "undo-tree-autoloads"
 	(global-undo-tree-mode t)
