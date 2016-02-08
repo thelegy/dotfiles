@@ -116,3 +116,8 @@ alias rkinit="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root kinit -f ${USER}/root@CS.
 alias rksu="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root ksu"
 alias rssh="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root ssh -l root"
 alias rscp="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root scp -o USER=root"
+
+
+# Local Variables:
+# mode: sh
+# End:
