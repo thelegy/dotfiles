@@ -10,6 +10,7 @@
 
 ;;;; load configuration files
 
+(config 'backup)
 (config 'global-keybindings)
 (config 'global-settings)
 (config 'mouse-interface)
