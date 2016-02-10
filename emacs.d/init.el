@@ -30,5 +30,6 @@
 
 (package 'auctex)
 (package 'helm)
+(package 'org)
 (package 'sr-speedbar)
 (package 'tramp)
