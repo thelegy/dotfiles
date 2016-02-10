@@ -22,10 +22,10 @@
 
 (if (version< emacs-version "24.4")
     (message "is before 24.4")
-  (progn
-    (package 'magit)
-    (package 'smart-tabs-mode)
-    )
+  (package
+   'magit
+   'smart-tabs-mode
+   )
   )
 
 (package 'auctex)
