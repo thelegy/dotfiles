@@ -33,3 +33,4 @@
 (package 'org)
 (package 'sr-speedbar)
 (package 'tramp)
+(package 'w3)
