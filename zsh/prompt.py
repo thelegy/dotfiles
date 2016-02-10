@@ -178,7 +178,7 @@ def prompt(args):
 
     prom = str(p)
 
-    s = '\r%E'
+    s = '%E'
     s += prom
 
     return s
