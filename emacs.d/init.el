@@ -10,13 +10,15 @@
 
 ;;;; load configuration files
 
-(config 'backup)
-(config 'global-keybindings)
-(config 'global-settings)
-(config 'mouse-interface)
-(config 'sh-mode)
-(config 'splash-screen)
-(config 'theme)
+(config
+ 'backup
+ 'global-keybindings
+ 'global-settings
+ 'mouse-interface
+ 'sh-mode
+ 'splash-screen
+ 'theme
+ )
 
 ;;;; make sure packages are installed and configure them
 
@@ -28,9 +30,11 @@
    )
   )
 
-(package 'auctex)
-(package 'helm)
-(package 'org)
-(package 'sr-speedbar)
-(package 'tramp)
-(package 'w3)
+(package
+ 'auctex
+ 'helm
+ 'org
+ 'sr-speedbar
+ 'tramp
+ 'w3
+ )
