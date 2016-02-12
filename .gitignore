@@ -2,5 +2,10 @@ __pycache__
 *~
 #*#
 
+/emacs.d/backup
 /emacs.d/elpa
+/emacs.d/tramp
+/emacs.d/games
+/emacs.d/url
+
 /i3/scratchpad/lockfile
