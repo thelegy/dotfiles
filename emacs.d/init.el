@@ -31,6 +31,7 @@
   )
 
 (package
+ 'ample-zen-theme
  'auctex
  'helm
  'org
