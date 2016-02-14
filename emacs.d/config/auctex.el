@@ -16,3 +16,14 @@
  TeX-parse-self t
  TeX-PDF-mode t
  )
+
+;; Expand mathmode
+
+(setq
+ LaTeX-math-list
+ (quote
+  (
+   ("_" LaTeX-math-partial)
+   )
+  )
+ )
