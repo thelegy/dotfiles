@@ -17,7 +17,6 @@ BLACKLIST=(
 
   #TEMPORARY
   "redshift"  # needs to be moved
-  "zsh"  # needs to be moved
 )
 
 

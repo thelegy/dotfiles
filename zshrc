@@ -84,8 +84,7 @@ bindkey ${key[Delete]} delete-char
 
 function command_prompt_init() {
 
-  local zshrc="${HOME}/.zshrc"
-  local promptPath="${zshrc:A:h}/prompt.py"
+  local promptPath="${HOME}/.prompt/prompt.py"
 
   local color=true
 
