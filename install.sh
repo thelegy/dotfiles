@@ -14,9 +14,6 @@ BLACKLIST=(
   "^install"
   "^LICENSE"
   "\.md$"
-
-  #TEMPORARY
-  "redshift"  # needs to be moved
 )
 
 

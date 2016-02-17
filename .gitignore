@@ -2,6 +2,9 @@ __pycache__
 *~
 #*#
 
+/config/*
+!/config/redshift.conf
+
 /emacs.d/backup
 /emacs.d/elpa
 /emacs.d/tramp
