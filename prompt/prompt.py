@@ -14,7 +14,7 @@ class Path(object):
 
     def _strip_home(self, path):
         if path.startswith(self.__home + '/'):
-            path = path.lstrip(self.__home)
+            path = path[(len(self.__home)+1):]
             path = '~/' + path
         return path
 
