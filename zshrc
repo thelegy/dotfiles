@@ -142,6 +142,11 @@ ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias 
 # Reload zshrc
 alias reconfigure='source ~/.zshrc'
 
+# Relief anger over missing permissions
+alias asshole='sudo $(fc -ln -1)'
+alias fu='sudo $(fc -ln -1)'
+alias fuckyou='sudo $(fc -ln -1)'
+
 #####################
 ###Config for work###
 #####################
