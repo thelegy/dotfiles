@@ -1,4 +1,10 @@
-URxvt.background: black
-URxvt.foreground: white
+!! Scroll Bar
 URxvt.scrollBar: false
-URxvt.font: xft:Inconsolata:pixelsize=15
+
+!! Colors
+URxvt.foreground: #D0D0D0
+URxvt.background: #202020
+
+!! Fonts
+URxvt.font: xft:Inconsolata:pixelsize=12
+
