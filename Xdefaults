@@ -1,3 +1,6 @@
+!! History
+URxvt.saveLines: 1000
+
 !! Scroll Bar
 URxvt.scrollBar: false
 
