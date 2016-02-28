@@ -14,6 +14,10 @@ BLACKLIST=(
   "^install"
   "^LICENSE"
   "\.md$"
+
+  # Temporary editing files
+  "~$"
+  "^#.*#$"
 )
 
 
