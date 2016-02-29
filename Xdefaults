@@ -11,3 +11,8 @@ URxvt.background: #202020
 !! Fonts
 URxvt.font: xft:Inconsolata:pixelsize=12
 
+!! Secondary Screen
+URxvt.secondaryScreen: true
+URxvt.secondaryScroll: false
+URxvt.secondaryWheel: false
+
