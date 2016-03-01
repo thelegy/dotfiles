@@ -16,3 +16,7 @@ URxvt.secondaryScreen: true
 URxvt.secondaryScroll: false
 URxvt.secondaryWheel: false
 
+!! Bell
+URxvt.urgentOnBell: true
+URxvt.visualBell: true
+
