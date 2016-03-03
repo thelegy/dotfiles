@@ -145,17 +145,17 @@ bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
-bar {
+bar {  # work:left
   output DVI-I-1
-  tray_output none
+  tray_output DVI-I-1
   status_command i3status
   workspace_buttons no
   binding_mode_indicator yes
   position top
 }
-bar {
-  output DP-1
-  tray_output DP-1
+bar {  # work:right
+  output DP-0
+  tray_output none
   status_command i3status
   workspace_buttons no
   binding_mode_indicator yes
