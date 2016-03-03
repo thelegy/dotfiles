@@ -41,6 +41,11 @@ hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
 # provide a terminal, that works almost everywhere
 export TERM="rxvt"
 
+## Python virtual environment
+# Python virtual environment will be handled by dedicated prompt code.
+# We need to disable the legacy code here
+export VIRTUAL_ENV_DISABLE_PROMPT=true
+
 #############
 ###Options###
 #############
