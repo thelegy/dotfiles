@@ -1,8 +1,9 @@
 *~
 #*#
 
-/backup
-/elpa
+/backup/
+/elpa/
+/games/
+/url/
+
 /tramp
-/games
-/url
