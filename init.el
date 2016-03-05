@@ -15,6 +15,7 @@
  'global-keybindings
  'global-settings
  'mouse-interface
+ 'org
  'sh-mode
  'splash-screen
  'theme
