@@ -34,6 +34,7 @@
 (package
  'ample-zen-theme
  'auctex
+ 'go-mode
  'helm
  'org
  'sr-speedbar
