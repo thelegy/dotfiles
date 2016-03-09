@@ -169,7 +169,7 @@ bar {  # home:left
   binding_mode_indicator yes
   position top
 }
-bar {
+bar {  # laptop
   output LVDS1
   tray_output LVDS1
   status_command i3status
