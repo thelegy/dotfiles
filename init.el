@@ -37,6 +37,8 @@
  'go-mode
  'helm
  'org
+ 'scad-mode
+ 'scad-preview
  'sr-speedbar
  'tramp
  'w3
