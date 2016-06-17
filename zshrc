@@ -39,7 +39,9 @@ hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
 
 ## Terminal
 # provide a terminal, that works almost everywhere
-export TERM="rxvt"
+if [ $TERM != "rxvt-unicode-256color" ]; then
+  export TERM="rxvt-unicode"
+fi
 
 ## Python virtual environment
 # Python virtual environment will be handled by dedicated prompt code.
