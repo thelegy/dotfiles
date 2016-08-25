@@ -28,7 +28,9 @@ autoload -U regexp-replace
 #############
 
 # the path should be set correctly
-export PATH=~/.local/bin:~/bin:${PATH}
+[ -d ~/.gem/ruby/2.3.0/bin ] && PATH=${PATH}:~/.gem/ruby/2.3.0/bin
+PATH=~/.local/bin:~/bin:${PATH}
+export PATH
 
 ## Editor
 # provide a range of fallbacks
