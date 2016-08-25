@@ -127,7 +127,7 @@ if hash gpg-connect-agent; then
   # Set SSH to use gpg-agent
   unset SSH_AGENT_PID
   if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+    export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
   fi
 
   # Set GPG TTY
@@ -135,7 +135,7 @@ if hash gpg-connect-agent; then
   export GPG_TTY
 
   # Refresh gpg-agent tty in case user switches into an X session
-  gpg-connect-agent updatestartuptty /bye >/dev/null
+  gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
 fi
 
 # SSHAgent
