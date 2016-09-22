@@ -1,0 +1,17 @@
+[Plugins]
+Output=i3bar
+Input=time;sensors;nl;upower;pulseaudio
+Order=pulseaudio;time
+
+[Pulseaudio]
+Instances=jack_out
+
+[Override pulseaudio:jack_out]
+Label=🔊
+LabelColour=#FFFFFF
+
+[Override pulseaudio:alsa_output.usb-Focusrite_Saffire_6USB2.0-00.analog-surround-40]
+Disable=true
+
+[Override pulseaudio:alsa_output.pci-0000_03_00.1.hdmi-stereo]
+Disable=true

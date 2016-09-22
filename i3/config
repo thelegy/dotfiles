@@ -13,6 +13,8 @@ set $mod Mod4
 
 set $dmenu-command hash j4-dmenu-desktop && j4-dmenu-desktop --dmenu="(cat && (stest -flx $(echo $PATH | tr : ' ') | sort -u)) | dmenu -i" || dmenu_run
 
+set $status-command hash j4status && exec j4status || i3status
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 # font  -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -151,7 +153,7 @@ bindsym $mod+r mode "resize"
 bar {  # home:right, work:left
   output DVI-I-1
   tray_output DVI-I-1
-  status_command i3status
+  status_command $status-command
   workspace_buttons no
   binding_mode_indicator yes
   position top
@@ -159,7 +161,7 @@ bar {  # home:right, work:left
 bar {  # work:right
   output DP-0
   tray_output none
-  status_command i3status
+  status_command $status-command
   workspace_buttons no
   binding_mode_indicator yes
   position top
@@ -167,7 +169,7 @@ bar {  # work:right
 bar {  # home:left
   output VGA-0
   tray_output VGA-0
-  status_command i3status
+  status_command $status-command
   workspace_buttons no
   binding_mode_indicator yes
   position top
@@ -175,7 +177,7 @@ bar {  # home:left
 bar {  # laptop
   output LVDS1
   tray_output LVDS1
-  status_command i3status
+  status_command $status-command
   workspace_buttons no
   binding_mode_indicator yes
   position top

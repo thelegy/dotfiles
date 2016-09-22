@@ -3,6 +3,7 @@ __pycache__
 #*#
 
 /config/*
+!/config/j4status
 !/config/redshift.conf
 
 /emacs.d/backup
