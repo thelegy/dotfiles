@@ -210,7 +210,8 @@ bindsym $mod+Print mode "$mode_system"
 bindsym $mod+l exec --no-startup-id ~/.i3/i3exit.sh lock
 
 bindsym $mod+p [instance="^scratchpad$"] scratchpad show
-exec_always flock -w1 ~/.i3/scratchpad/lockfile ~/.i3/scratchpad/perpetual_terminal.sh
+#exec_always flock -w1 ~/.i3/scratchpad/lockfile ~/.i3/scratchpad/perpetual_terminal.sh
+
 for_window [instance="^scratchpad$"] move scratchpad
 
 bindsym $mod+asciicircum exec --no-startup-id bash ~/.i3/sleep_it.sh
