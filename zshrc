@@ -164,7 +164,7 @@ alias fuckyou='sudo $(fc -ln -1)'
 ###Config for work###
 #####################
 
-alias urdesktop="rdesktop -k de -d AD -u ${USER} -g 1280x1024 -r disk:share=/local/share -x l vm-mit.cs.upb.de"
+alias urdesktop="xfreerdp --sec tls -k German_Standard -d AD -u ${USER} -g 1280x1024 -x l vm-mit.cs.upb.de"
 alias rklist="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root klist"
 alias rkinit="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root kinit -f ${USER}/root@CS.UNI-PADERBORN.DE"
 alias rksu="KRB5CCNAME=FILE:/tmp/rootkrb_${UID}_root ksu"
