@@ -9,7 +9,7 @@ URxvt.foreground: #D0D0D0
 URxvt.background: #202020
 
 !! Fonts
-URxvt.font: xft:Inconsolata:pixelsize=12
+URxvt.font: xft:Inconsolata:pixelsize=12,xft:unifont:pixelsize=12
 
 !! Secondary Screen
 URxvt.secondaryScreen: true
@@ -19,4 +19,3 @@ URxvt.secondaryWheel: false
 !! Bell
 URxvt.urgentOnBell: true
 URxvt.visualBell: true
-
