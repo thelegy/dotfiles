@@ -46,4 +46,5 @@
  'sr-speedbar
  'tramp
  'w3
+ 'yaml-mode
  )
