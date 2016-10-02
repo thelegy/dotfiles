@@ -12,6 +12,7 @@
 
 (config
  'backup
+ 'custom
  'global-keybindings
  'global-settings
  'mouse-interface
