@@ -37,6 +37,7 @@
  'auctex
  'go-mode
  'helm
+ 'lua-mode
  'org
  'scad-mode
  'scad-preview
