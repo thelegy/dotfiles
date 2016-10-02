@@ -39,6 +39,7 @@
  'helm
  'lua-mode
  'org
+ 'salt-mode
  'scad-mode
  'scad-preview
  'sr-speedbar
