@@ -152,7 +152,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {  # home:right
   output DVI-I-1
-  tray_output DVI-I-1
+  tray_output none
   status_command $status-command
   workspace_buttons no
   binding_mode_indicator yes
