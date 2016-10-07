@@ -220,7 +220,7 @@ bindsym $mod+l exec --no-startup-id ~/.i3/i3exit.sh lock
 bindsym $mod+p [instance="^scratchpad$"] scratchpad show
 #exec_always flock -w1 ~/.i3/scratchpad/lockfile ~/.i3/scratchpad/perpetual_terminal.sh
 
-exec_always hash compton && compton -b -i 0.4 --inactive-dim 0.4 --no-fading-openclose --vsync opengl --blur-background --focus-exclude "name *= 'Firefox'" --opacity-rule "85:name *= 'rxvt'" --paint-on-overlay
+exec_always hash compton && compton -b
 
 exec_always hash qjackctl && qjackctl
 exec_always sleep 1 && i3-msg '[title="^JACK Audio Connection Kit"] kill'

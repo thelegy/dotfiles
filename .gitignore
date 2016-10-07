@@ -3,6 +3,7 @@ __pycache__
 #*#
 
 /config/*
+!/config/compton.conf
 !/config/j4status
 !/config/redshift.conf
 
