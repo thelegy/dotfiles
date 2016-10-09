@@ -50,6 +50,9 @@ fi
 # We need to disable the legacy code here
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
+## Gopath
+[ -d ${HOME}/.gopath ] && export GOPATH=${HOME}/.gopath
+
 #############
 ###Options###
 #############
