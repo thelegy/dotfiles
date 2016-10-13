@@ -42,6 +42,7 @@
  'salt-mode
  'scad-mode
  'scad-preview
+ 'scss-mode
  'smart-tabs-mode
  'sr-speedbar
  'tramp
