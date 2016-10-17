@@ -46,6 +46,7 @@
  'smart-tabs-mode
  'sr-speedbar
  'tramp
+ 'workgroups2
  'w3
  'yaml-mode
  )
