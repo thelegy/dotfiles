@@ -14,6 +14,20 @@
 
 # Now, let's come to the good stuff:
 
+####################
+###Dumb Terminals###
+####################
+
+# this is for dumb terminals mainly tramp
+if [[ "$TERM" == "dumb" ]]; then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  PS1='$ '
+
+  # return to leave the environment nearly untouched
+  return
+fi
 
 ###############
 ###Autoloads###
@@ -146,6 +160,13 @@ alias ll="ls -l"
 alias asshole='sudo $(fc -ln -1)'
 alias fu='sudo $(fc -ln -1)'
 alias fuckyou='sudo $(fc -ln -1)'
+
+#############################
+###Source external scripts###
+#############################
+
+# added by travis gem
+[ -f /home/jan/.travis/travis.sh ] && source /home/jan/.travis/travis.sh
 
 # Local Variables:
 # mode: sh
