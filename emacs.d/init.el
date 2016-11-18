@@ -39,6 +39,7 @@
  'helm
  'lua-mode
  'org
+ 'rainbow-delimiters
  'salt-mode
  'scad-mode
  'scad-preview
