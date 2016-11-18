@@ -45,7 +45,6 @@
  'scad-preview
  'scss-mode
  'smart-tabs-mode
- 'sr-speedbar
  'tramp
  'workgroups2
  'w3
