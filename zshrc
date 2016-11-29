@@ -190,6 +190,9 @@ alias fuckyou='sudo $(fc -ln -1)'
 # added by travis gem
 [ -f /home/jan/.travis/travis.sh ] && source /home/jan/.travis/travis.sh
 
+# Clear the return value
+true
+
 # Local Variables:
 # mode: sh
 # End:
