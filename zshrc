@@ -41,6 +41,13 @@ autoload -U regexp-replace
 ###Globals###
 #############
 
+## Completion
+# The following lines were added by compinstall
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+## Path
 # the path should be set correctly
 [ -d ~/.gem/ruby/2.3.0/bin ] && PATH=${PATH}:~/.gem/ruby/2.3.0/bin
 PATH=~/.local/bin:~/bin:${PATH}
