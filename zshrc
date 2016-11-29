@@ -165,7 +165,7 @@ fi
 
 # SSHAgent
 # ========
-ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
+ssh-add -l >/dev/null 2>&1 || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
 ###########
 ###Alias###
