@@ -1,7 +1,16 @@
 [Plugins]
 Output=i3bar
 Input=mpd;time;sensors;nl;upower;pulseaudio
-Order=pulseaudio;time
+Order=sensors;nl-ether;pulseaudio;time
+
+
+[Netlink]
+Interfaces=bridge0;
+Addresses=IPv4
+
+[Override nl-ether:bridge0]
+Label=
+
 
 [Pulseaudio]
 Instances=jack_out
