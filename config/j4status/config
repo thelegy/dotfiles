@@ -1,6 +1,6 @@
 [Plugins]
 Output=i3bar
-Input=time;sensors;nl;upower;pulseaudio
+Input=mpd;time;sensors;nl;upower;pulseaudio
 Order=pulseaudio;time
 
 [Pulseaudio]
@@ -12,6 +12,36 @@ LabelColour=#FFFFFF
 
 [Override pulseaudio:alsa_output.usb-Focusrite_Saffire_6USB2.0-00.analog-surround-40]
 Disable=true
-
 [Override pulseaudio:alsa_output.pci-0000_03_00.1.hdmi-stereo]
+Disable=true
+
+
+[Sensors]
+
+[Override sensors:coretemp-isa-0000/temp1]
+Label=CPU
+
+[Override sensors:nct6776-isa-0290/temp1]
+Label=Mainbard
+
+[Override sensors:nct6776-isa-0290/temp3]
+Label=NB
+
+[Override sensors:coretemp-isa-0000/temp2]
+Disable=true
+[Override sensors:coretemp-isa-0000/temp3]
+Disable=true
+[Override sensors:coretemp-isa-0000/temp4]
+Disable=true
+[Override sensors:coretemp-isa-0000/temp5]
+Disable=true
+[Override sensors:nct6776-isa-0290/temp2]
+Disable=true
+[Override sensors:nct6776-isa-0290/temp7]
+Disable=true
+[Override sensors:nct6776-isa-0290/temp8]
+Disable=true
+[Override sensors:nct6776-isa-0290/temp9]
+Disable=true
+[Override sensors:nct6776-isa-0290/temp10]
 Disable=true
