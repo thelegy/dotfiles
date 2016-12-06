@@ -4,6 +4,8 @@ __pycache__
 
 /config/*
 !/config/compton.conf
+!/config/git
+/config/git/gitk
 !/config/j4status
 !/config/redshift.conf
 
