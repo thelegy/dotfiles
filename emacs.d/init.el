@@ -46,6 +46,7 @@
  'scss-mode
  'smart-tabs-mode
  'tramp
+ 'web-mode
  'workgroups2
  'w3
  'yaml-mode
