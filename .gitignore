@@ -2,20 +2,12 @@ __pycache__
 *~
 #*#
 
-/config/*
-!/config/compton.conf
-!/config/git
 /config/git/gitk
-!/config/j4status
-!/config/redshift.conf
 
 /emacs.d/backup
 /emacs.d/elpa
 /emacs.d/tramp
 /emacs.d/games
 /emacs.d/url
-
-/gnupg/*
-!/gnupg/*.conf
 
 /i3/scratchpad/lockfile
