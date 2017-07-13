@@ -10,7 +10,9 @@ l config/git                            .config/git
 l config/j4status                       .config/j4status
 l config/redshift.conf                  .config/redshift.conf
 
-l emacs.d                               .emacs.d
+d                                       .emacs.d
+l emacs.d/config                        .emacs.d/config
+l emacs.d/init.el                       .emacs.d/init.el
 
 d                                       .gnupg
 l gnupg/gpg.conf                        .gnupg/gpg.conf
