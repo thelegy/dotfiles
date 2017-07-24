@@ -9,6 +9,7 @@ l config/compton.conf                   .config/compton.conf
 l config/git                            .config/git
 l config/j4status                       .config/j4status
 l config/redshift.conf                  .config/redshift.conf
+l config/sway                           .config/sway
 
 d                                       .emacs.d
 l emacs.d/config                        .emacs.d/config

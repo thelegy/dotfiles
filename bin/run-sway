@@ -1,0 +1,6 @@
+#!/bin/zsh
+
+export PATH=$HOME/bin:$HOME/bin/$(hostname):$PATH
+export XKB_DEFAULT_LAYOUT=de
+
+sway
