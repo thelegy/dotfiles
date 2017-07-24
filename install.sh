@@ -5,6 +5,7 @@ cd $(dirname $(realpath $0)); source install_source.sh
 l bin                                   bin
 
 d                                       .config
+l config/cdm                            .config/cdm
 l config/compton.conf                   .config/compton.conf
 l config/git                            .config/git
 l config/j4status                       .config/j4status

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PATH=$HOME/bin/$(hostname):$HOME/bin:$PATH
+
+namelist=()
+binlist=()
+flaglist=()
+
+
+if command -v sway > /dev/null; then
+  namelist+=(Sway)
+  binlist+=('run-sway')
+  flaglist+=(C)
+fi
+
+namelist+=(Console)
+binlist+=("$SHELL -li")
+flaglist+=(C)
+
+
+dialogrc=/usr/share/cdm/themes/blackandwhite
