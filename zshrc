@@ -50,7 +50,7 @@ compinit
 ## Path
 # the path should be set correctly
 [ -d ~/.gem/ruby/2.3.0/bin ] && PATH=${PATH}:~/.gem/ruby/2.3.0/bin
-PATH=~/.local/bin:~/bin:${PATH}
+PATH=~/bin:~/bin/$(hostname):${PATH}
 export PATH
 
 ## Editor
