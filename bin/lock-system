@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -n "$SWAYSOCK" ] && command -v swaylock >/dev/null; then
+
+  swaylock -c 202020F0
+
+elif [ -n "$I3SOCK" ] && command -v i3lock >/dev/null; then
+
+  if ! i3lock --show-failed-attempts --ignore-empty-password --color=202020; then
+    i3lock --color=202020
+  fi
+
+else
+
+  echo "Cannot Lock!"
+
+fi
