@@ -201,12 +201,12 @@ bar {
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-  bindsym l exec --no-startup-id ~/.i3/i3exit.sh lock, mode "default"
-  bindsym e exec --no-startup-id ~/.i3/i3exit.sh logout, mode "default"
-  bindsym s exec --no-startup-id ~/.i3/i3exit.sh suspend, mode "default"
-  bindsym h exec --no-startup-id ~/.i3/i3exit.sh hibernate, mode "default"
-  bindsym r exec --no-startup-id ~/.i3/i3exit.sh reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id ~./i3/i3exit.sh shutdown, mode "default"
+  bindsym l exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh lock, mode "default"
+  bindsym e exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh logout, mode "default"
+  bindsym s exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh suspend, mode "default"
+  bindsym h exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh hibernate, mode "default"
+  bindsym r exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh reboot, mode "default"
+  bindsym Shift+s exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh shutdown, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -215,7 +215,7 @@ mode "$mode_system" {
 bindsym $mod+Print mode "$mode_system"
 
 # Use direct shortkey for locking
-bindsym $mod+l exec --no-startup-id ~/.i3/i3exit.sh lock
+bindsym $mod+l exec --no-startup-id ${XDG_CONFIG_HOME:-~/.config}/i3exit.sh lock
 
 bindsym $mod+p [instance="^scratchpad$"] scratchpad show
 #exec_always flock -w1 ~/.i3/scratchpad/lockfile ~/.i3/scratchpad/perpetual_terminal.sh
@@ -228,4 +228,4 @@ for_window [title="^JACK Audio Connection Kit"] floating enable, resize set 604 
 
 for_window [instance="^scratchpad$"] move scratchpad
 
-bindsym $mod+asciicircum exec --no-startup-id bash ~/.i3/sleep_it.sh
+bindsym $mod+asciicircum exec --no-startup-id bash ${XDG_CONFIG_HOME:-~/.config}/sleep_it.sh
