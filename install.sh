@@ -13,6 +13,8 @@ l config/j4status                       ${XDG_CONFIG_HOME:-.config}/j4status
 l config/redshift.conf                  ${XDG_CONFIG_HOME:-.config}/redshift.conf
 l config/sway                           ${XDG_CONFIG_HOME:-.config}/sway
 
+l env.sh                                ${XDG_CONFIG_HOME:-.config}/env.sh
+
 d                                       .emacs.d
 l emacs.d/config                        .emacs.d/config
 l emacs.d/init.el                       .emacs.d/init.el

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH=$HOME/bin/$(hostname):$HOME/bin:$PATH
+[ -f ${XDG_CONFIG_HOME:-.config}/env.sh ] && source ${XDG_CONFIG_HOME:-.config}/env.sh
 
 namelist=()
 binlist=()

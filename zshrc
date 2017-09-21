@@ -47,18 +47,6 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-## Path
-# the path should be set correctly
-[ -d ~/.gem/ruby/2.3.0/bin ] && PATH=${PATH}:~/.gem/ruby/2.3.0/bin
-PATH=~/bin:~/bin/$(hostname):${PATH}
-export PATH
-
-## Editor
-# provide a range of fallbacks
-                              export EDITOR="vi"
-hash nano  >/dev/null 2>&1 && export EDITOR="nano"
-hash vim   >/dev/null 2>&1 && export EDITOR="vim"
-hash emacs >/dev/null 2>&1 && export EDITOR="emacs -nw"
 
 ## Terminal
 # provide a terminal, that works almost everywhere
@@ -71,9 +59,6 @@ fi
 # We need to disable the legacy code here
 export VIRTUAL_ENV_DISABLE_PROMPT=true
 
-## Gopath
-[ -d ${HOME}/.gopath ] && export GOPATH=${HOME}/.gopath
-
 #############
 ###Options###
 #############
@@ -84,6 +69,11 @@ setopt promptsubst
 # flow control semms kinda strange, we don't need that
 unsetopt flow_control
 
+#################
+###Environment###
+#################
+
+[ -f ${XDG_CONFIG_HOME:-.config}/env.sh ] && source ${XDG_CONFIG_HOME:-.config}/env.sh
 
 #################
 ###Keybindings###
@@ -137,42 +127,6 @@ function command_prompt_init() {
 }
 
 command_prompt_init
-
-###################
-###Miscellaneous###
-###################
-
-# GPGAgent
-# ========
-if hash gpg-agent; then
-  local variables
-  variables="$(gpg-agent --daemon 2>/dev/null)"
-  if [[ $? == 0 ]]; then
-    eval "$variables"
-  else
-    # Start the gpg-agent if not already running
-    if ! pgrep -x -u "${USER}" gpg-agent >/dev/null 2>&1; then
-      gpg-connect-agent /bye >/dev/null 2>&1
-    fi
-
-    # Set SSH to use gpg-agent
-    unset SSH_AGENT_PID
-    if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-      export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket|sed -zr 's/^.*agent-socket:(\S+).*$/\1\n/')"
-    fi
-
-    # Set GPG TTY
-    GPG_TTY=$(tty)
-    export GPG_TTY
-
-    # Refresh gpg-agent tty in case user switches into an X session
-    gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-  fi
-fi
-
-# SSHAgent
-# ========
-ssh-add -l >/dev/null 2>&1 || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 
 ###########
 ###Alias###
