@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function lock()
+lock()
 {
   if ! i3lock --show-failed-attempts --ignore-empty-password --color=202020; then
     i3lock --color=202020
@@ -8,25 +8,25 @@ function lock()
   return
 }
 
-function logout()
+logout()
 {
   i3-msg exit
   return
 }
 
-function reboot()
+reboot()
 {
   systemctl reboot
   return
 }
 
-function shutdown()
+shutdown()
 {
   systemctl poweroff
   return
 }
 
-function usage()
+usage()
 {
   echo "$0 (lock|logout|reboot|shutdown)"
   return

@@ -105,7 +105,7 @@ bindkey ${key[Delete]} delete-char
 ###Command Prompt###
 ####################
 
-function command_prompt_init() {
+command_prompt_init() {
 
   local promptPath="${HOME}/.prompt/prompt.py"
 
