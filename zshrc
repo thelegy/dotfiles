@@ -73,7 +73,7 @@ unsetopt flow_control
 ###Environment###
 #################
 
-[ -f ${XDG_CONFIG_HOME:-.config}/env.sh ] && source ${XDG_CONFIG_HOME:-.config}/env.sh
+[ -f ${XDG_CONFIG_HOME:-$HOME/.config}/env.sh ] && source ${XDG_CONFIG_HOME:-$HOME/.config}/env.sh
 
 #################
 ###Keybindings###
