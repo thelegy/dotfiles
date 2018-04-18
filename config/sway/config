@@ -2,9 +2,9 @@ set $mod Mod4
 
 set $dmenu-command hash j4-dmenu-desktop && j4-dmenu-desktop --dmenu="(cat && (stest -flx $(echo $PATH | tr : ' ') | sort -u)) | dmenu -i" || dmenu_run
 
-set $status-command hash j4status && exec j4status || hash i3status && i3status ||
-#set $status-command (command -v py3blocks > /dev/null && py3blocks --i3bar -p 12361) || (command -v j4status > /dev/null && j4status) || (command -v i3status > /dev/null && i3status) || while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done
-set $status-command command -v py3blocks > /dev/null && py3blocks --i3bar -p 12361 || while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done
+# set $status-command hash j4status && exec j4status || hash i3status && i3status ||
+# set $status-command (command -v py3blocks > /dev/null && py3blocks --i3bar -p 12361) || (command -v j4status > /dev/null && j4status) || (command -v i3status > /dev/null && i3status) || while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done
+set $status-command if command -v py3blocks > /dev/null; then py3blocks --i3bar -p 12361; else while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done; fi
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode

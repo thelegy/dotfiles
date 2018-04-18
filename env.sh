@@ -43,8 +43,7 @@ command -v emacs >/dev/null && export EDITOR="emacs -nw"
 [ ! -d "$GOPATH" ] && unset GOPATH
 
 
-# GPGAgent
-# ========
+## GPGAgent
 if command -v gpg-agent >/dev/null; then
   variables="$(gpg-agent --daemon 2>/dev/null)"
   if [[ $? == 0 ]]; then
@@ -72,6 +71,5 @@ if command -v gpg-agent >/dev/null; then
 fi
 
 
-# SSHAgent
-# ========
+## SSHAgent
 ssh-add -l >/dev/null 2>&1 || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
