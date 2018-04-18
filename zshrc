@@ -144,6 +144,10 @@ alias asshole='sudo $(fc -ln -1)'
 alias fu='sudo $(fc -ln -1)'
 alias fuckyou='sudo $(fc -ln -1)'
 
+# Sympy Calculator
+alias sympy='if command -v ipython3 >/dev/null; then ipython --pylab -ic"from sympy import init_session; init_session(auto_int_to_Integer=True)"; else /usr/bin/env python3 -c"from sympy import init_session; init_session()"; fi'
+alias calc='sympy'
+
 #############################
 ###Source external scripts###
 #############################
@@ -153,6 +157,30 @@ alias fuckyou='sudo $(fc -ln -1)'
 
 # Clear the return value
 true
+
+###########
+###Other###
+###########
+
+# submit file/stdin to pastebin, optionally signing it
+pastebin () {
+    local -r pastebin='https://0x0.st'
+
+    if [ "$1" = '--sign' ]; then
+        local -r filter='gpg --clearsign --output -'
+        shift
+    else
+        local -r filter='cat'
+    fi
+
+    if [ -n "$1" ]; then
+        local -r file="$1"
+    else
+        local -r file='-'
+    fi
+
+    $filter "$file" | curl -F'file=@-' "$pastebin"
+}
 
 # Local Variables:
 # mode: sh
