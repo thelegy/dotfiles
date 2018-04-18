@@ -36,9 +36,11 @@ command -v vim   >/dev/null && export EDITOR="vim"
 command -v zile  >/dev/null && export EDITOR="zile"
 command -v emacs >/dev/null && export EDITOR="emacs -nw"
 
-## Gopath
-[ -d ${HOME}/.gopath ] && export GOPATH=${HOME}/.gopath
 
+## Gopath
+[ ! -d "$GOPATH" ] && export GOPATH=${HOME}/.gopath
+[ ! -d "$GOPATH" ] && export GOPATH=${HOME}/go
+[ ! -d "$GOPATH" ] && unset GOPATH
 
 
 # GPGAgent
