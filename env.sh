@@ -20,7 +20,7 @@ PATH=${ORIGINALPATH:=$PATH}
 add_path "~/bin" start
 add_path "~/bin/$(hostname)" start
 
-for i in $(find ~/.gem/ruby/*/bin | sort -r); do
+for i in $( find ~/.gem/ruby/ -maxdepth 2 -name bin | sort -r ); do
   add_path "$i" end
 done
 
