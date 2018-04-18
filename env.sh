@@ -20,6 +20,8 @@ PATH=${ORIGINALPATH:=$PATH}
 add_path "~/bin" start
 add_path "~/bin/$(hostname)" start
 
+add_path "${XDG_DATA_HOME:-$HOME/.local/share}/py3blocks/bin"
+
 for i in $( find ~/.gem/ruby/ -maxdepth 2 -name bin | sort -r ); do
   add_path "$i" end
 done

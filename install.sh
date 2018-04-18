@@ -10,6 +10,7 @@ l config/compton.conf                   ${XDG_CONFIG_HOME:-$HOME/.config}/compto
 l config/git                            ${XDG_CONFIG_HOME:-$HOME/.config}/git
 l i3                                    ${XDG_CONFIG_HOME:-$HOME/.config}/i3
 l config/j4status                       ${XDG_CONFIG_HOME:-$HOME/.config}/j4status
+l config/py3blocks                      ${XDG_CONFIG_HOME:-$HOME/.config}/py3blocks
 l config/redshift.conf                  ${XDG_CONFIG_HOME:-$HOME/.config}/redshift.conf
 l config/sway                           ${XDG_CONFIG_HOME:-$HOME/.config}/sway
 
