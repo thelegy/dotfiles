@@ -39,6 +39,8 @@
  'helm
  'lua-mode
  'org
+ 'platformio-mode
+ 'projectile
  'rainbow-delimiters
  'salt-mode
  'scad-mode
