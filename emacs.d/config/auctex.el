@@ -15,6 +15,10 @@
  TeX-auto-save t
  TeX-parse-self t
  TeX-PDF-mode t
+
+ ;; German Quotations
+ TeX-open-quote "\"`"
+ TeX-close-quote "\"'"
  )
 
 ;; Expand mathmode
