@@ -36,12 +36,15 @@
 (package
  'ample-zen-theme
  'auctex
+ 'elpy
+ 'flycheck
  'go-mode
  'helm
  'lua-mode
  'org
  'platformio-mode
  'projectile
+ 'py-autopep8
  'rainbow-delimiters
  'salt-mode
  'scad-mode
@@ -49,8 +52,8 @@
  'scss-mode
  'smart-tabs-mode
  'tramp
+ 'w3
  'web-mode
  'workgroups2
- 'w3
  'yaml-mode
  )
