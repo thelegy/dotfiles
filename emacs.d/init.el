@@ -12,6 +12,7 @@
 
 (config
  'backup
+ 'clipboard
  'custom
  'global-keybindings
  'global-settings
