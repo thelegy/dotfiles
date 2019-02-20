@@ -5,6 +5,7 @@ cd $(dirname $(realpath $0)); source install_source.sh
 l bin                                   bin
 
 d                                       ${XDG_CONFIG_HOME:-$HOME/.config}
+l config/alacritty                      ${XDG_CONFIG_HOME:-$HOME/.config}/alacritty
 l config/cdm                            ${XDG_CONFIG_HOME:-$HOME/.config}/cdm
 l config/compton.conf                   ${XDG_CONFIG_HOME:-$HOME/.config}/compton.conf
 l config/git                            ${XDG_CONFIG_HOME:-$HOME/.config}/git
