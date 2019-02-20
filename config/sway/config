@@ -6,14 +6,17 @@ set $dmenu-command hash j4-dmenu-desktop && j4-dmenu-desktop --dmenu="(cat && (s
 # set $status-command (command -v py3blocks > /dev/null && py3blocks --i3bar -p 12361) || (command -v j4status > /dev/null && j4status) || (command -v i3status > /dev/null && i3status) || while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done
 set $status-command if command -v py3blocks > /dev/null; then py3blocks --i3bar -p 12361; else while sleep 1; do date +'%Y-%m-%d %H:%M:%S'; done; fi
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below. ISO 10646 = Unicode
-# font  -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, if you need a lot of unicode glyphs or
-# right-to-left text rendering, you should instead use pango for rendering and
-# chose a FreeType font, such as:
-font pango:DejaVu Sans Mono 8
+output eDP-1 res 1920x1080
+output eDP-1 pos 0,0
+
+#output DP-1 scale 1
+
+output * bg #202020 solid_color
+output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+# Font redering uses Pango.
+# (https://developer.gnome.org/pango/stable/pango-Fonts.html#pango-font-description-from-string)
+font Fira Code, Inconsolata, DejaVu Sans Mono 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -26,30 +29,13 @@ bindsym $mod+Shift+Return exec sensible-command alacritty urxvt
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 bindsym $mod+d exec --no-startup-id $dmenu-command
-
-# change focus
-#bindsym $mod+j focus left
-#bindsym $mod+k focus down
-#bindsym $mod+l focus up
-#bindsym $mod+odiaeresis focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-#bindsym $mod+Shift+j move left
- #bindsym $mod+Shift+k move down
-#bindsym $mod+Shift+l move up
-#bindsym $mod+Shift+odiaeresis move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -109,26 +95,21 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exit
+
+# exit sway
+set $exit_mode "Press Del to exit sway."
+mode $exit_mode {
+  bindsym Delete exit, mode default
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode $exit_mode
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
   # These bindings trigger as soon as you enter the resize mode
-
-  # Pressing left will shrink the window’s width.
-  # Pressing right will grow the window’s width.
-  # Pressing up will shrink the window’s height.
-  # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
-  bindsym odiaeresis resize grow width 10 px or 10 ppt
-
-  # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
   bindsym Down resize grow height 10 px or 10 ppt
   bindsym Up resize shrink height 10 px or 10 ppt
@@ -138,61 +119,20 @@ mode "resize" {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {  # home:right
-#  output DVI-I-1
-#  tray_output none
-#  status_command $status-command
-#  workspace_buttons no
-#  binding_mode_indicator yes
-#  position top
-#}
-#bar {  # work:left
-#  output DP-2
-#  tray_output DP-2
-#  status_command i3status
-#  workspace_buttons no
-#  binding_mode_indicator yes
-#  position top
-#}
-#bar {  # work:right
-#  output DP-4
-#  tray_output none
-#  status_command $status-command
-#  workspace_buttons no
-#  binding_mode_indicator yes
-#  position top
-#}
-#bar {  # home:left
-#  output VGA-0
-#  tray_output VGA-0
-#  status_command $status-command
-#  workspace_buttons no
-#  binding_mode_indicator yes
-#  position top
-#}
-#bar {  # laptop
-#  output LVDS1
-#  tray_output LVDS1
-#  status_command $status-command
-#  workspace_buttons no
-#  binding_mode_indicator yes
-#  position top
-#}
-#
-#bar {
-#  mode hide
-#  binding_mode_indicator no
-#  tray_output none
-#}
+client.unfocused #333333 #202020dd #888888 #292d2e #202020
 
+# swaybar
 bar {
+  height 20px
   position top
   status_command $status-command
+  colors {
+    background #202020aa
+    statusline #eeeeee
+    inactive_workspace #333333cc #202020cc #eeeeee
+  }
 }
 
 # Menu for power management etc.
@@ -214,16 +154,25 @@ bindsym $mod+Shift+l mode "$mode_system"
 # Use direct shortkey for locking
 bindsym $mod+l exec --no-startup-id lock-system
 
+# Scratchpad foo
 bindsym $mod+p [instance="^scratchpad$"] scratchpad show
-#exec_always flock -w1 ~/.i3/scratchpad/lockfile ~/.i3/scratchpad/perpetual_terminal.sh
-
-
-#exec_always hash qjackctl && qjackctl
-#exec_always sleep 1 && i3-msg '[title="^JACK Audio Connection Kit"] kill'
-#for_window [title="^JACK Audio Connection Kit"] floating enable, resize set 604 px 120 px
 
 for_window [instance="^scratchpad$"] move scratchpad
 
 bindsym $mod+asciicircum exec --no-startup-id bash ~/.i3/sleep_it.sh
 
-exec_always command -v py3blocks > /dev/null && py3blocks --server --port 12361 -c ./.config/py3blocks/py3blocks.ini
+exec command -v py3blocks > /dev/null && py3blocks --server --port 12361 -c ~/.config/py3blocks/py3blocks.ini
+
+# Opacity for urxvt
+for_window [class="URxvt"] opacity .95
+for_window [class="Emacs"] opacity .95
+
+# Border foo
+default_border normal 0
+hide_edge_borders smart_no_gaps
+smart_borders on
+gaps inner 5px
+gaps outer -5px
+
+# Redshift
+exec command -v redshift > /dev/null && redshift -m wayland -t 5700:3400 -g 1
