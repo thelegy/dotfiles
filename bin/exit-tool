@@ -32,9 +32,16 @@ shutdown()
   return
 }
 
+suspend()
+{
+  lock&
+  systemctl suspend
+  return
+}
+
 usage()
 {
-  echo "$0 (lock|logout|reboot|shutdown)"
+  echo "$0 (lock|logout|reboot|shutdown|suspend)"
   return
 }
 
@@ -50,6 +57,9 @@ case "$1" in
     ;;
   shutdown)
     shutdown
+    ;;
+  suspend)
+    suspend
     ;;
   *)
     usage
