@@ -48,12 +48,6 @@ compinit
 # End of lines added by compinstall
 
 
-## Terminal
-# provide a terminal, that works almost everywhere
-if [ $TERM != "rxvt-unicode-256color" ]; then
-  export TERM="rxvt-unicode"
-fi
-
 ## Python virtual environment
 # Python virtual environment will be handled by dedicated prompt code.
 # We need to disable the legacy code here
