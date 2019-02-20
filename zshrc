@@ -142,6 +142,11 @@ alias fuckyou='sudo $(fc -ln -1)'
 alias sympy='if command -v ipython3 >/dev/null; then ipython --pylab -ic"from sympy import init_session; init_session(auto_int_to_Integer=True)"; else /usr/bin/env python3 -c"from sympy import init_session; init_session()"; fi'
 alias calc='sympy'
 
+# Misc
+if command -v kitty >/dev/null; then
+  alias icat='kitty +kitten icat'
+fi
+
 #############################
 ###Source external scripts###
 #############################
