@@ -9,7 +9,7 @@ l config/alacritty                      ${XDG_CONFIG_HOME:-$HOME/.config}/alacri
 l config/cdm                            ${XDG_CONFIG_HOME:-$HOME/.config}/cdm
 l config/compton.conf                   ${XDG_CONFIG_HOME:-$HOME/.config}/compton.conf
 l config/git                            ${XDG_CONFIG_HOME:-$HOME/.config}/git
-l i3                                    ${XDG_CONFIG_HOME:-$HOME/.config}/i3
+l config/i3                             ${XDG_CONFIG_HOME:-$HOME/.config}/i3
 l config/j4status                       ${XDG_CONFIG_HOME:-$HOME/.config}/j4status
 l config/kitty                          ${XDG_CONFIG_HOME:-$HOME/.config}/kitty
 l config/py3blocks                      ${XDG_CONFIG_HOME:-$HOME/.config}/py3blocks
