@@ -2,15 +2,21 @@
 
 lock()
 {
-  if ! i3lock --show-failed-attempts --ignore-empty-password --color=202020; then
-    i3lock --color=202020
-  fi
+  lock-system
   return
 }
 
 logout()
 {
-  i3-msg exit
+  if [ -n "$SWAYSOCK" ] && command -v swaymsg >/dev/null; then
+    $msgcmd=swaymsg
+  elif [ -n "$I3SOCK" ] && command -v i3-msg >/dev/null; then
+    $msgcmd=i3-msg
+  else
+    echo "Cannnot Logout!"
+    return
+  fi
+  $msgcmd exit
   return
 }
 
