@@ -84,10 +84,20 @@ key[Up]=${terminfo[kcuu1]}
 key[Down]=${terminfo[kcud1]}
 key[Left]=${terminfo[kcub1]}
 key[Right]=${terminfo[kcuf1]}
-key[C-Left]="^[Od"
-key[C-Right]="^[Oc"
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
+key[C-Left]="^[Od"
+key[C-Right]="^[Oc"
+
+# key fixups for various terminals
+case "$TERM" in
+  xterm*)
+    key[Home]='^[[H'
+    key[End]='^[[F'
+    key[C-Left]='^[[1;5D'
+    key[C-Right]="^[[1;5C"
+    ;;
+esac
 
 bindkey ${key[C-Left]} emacs-backward-word
 bindkey ${key[C-Right]} emacs-forward-word
