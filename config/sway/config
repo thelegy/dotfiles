@@ -19,7 +19,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec command -v i3-sensible-terminal >/dev/null && TERMINAL=urxvt-256color i3-sensible-terminal || urxvt
+bindsym $mod+Return exec sensible-command kitty urxvt
+bindsym $mod+Shift+Return exec sensible-command alacritty urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
